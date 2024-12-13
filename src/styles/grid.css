@@ -1,0 +1,25 @@
+@import './variables.css';
+
+.cyber-grid {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    linear-gradient(transparent 0%, rgba(0,255,255,0.2) 2%, transparent 3%),
+    linear-gradient(90deg, transparent 0%, rgba(0,255,255,0.2) 2%, transparent 3%);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .cyber-grid {
+    background-size: 30px 30px;
+  }
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50px); }
+}

@@ -1,0 +1,71 @@
+@import './variables.css';
+
+.cyber-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: rgba(17, 17, 17, 0.95);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  color: var(--light);
+  font-size: var(--font-size-base);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.3s ease;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.cyber-notification.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cyber-notification.success {
+  border-color: var(--primary);
+}
+
+.cyber-notification.error {
+  border-color: var(--secondary);
+}
+
+.notification-content {
+  margin-bottom: var(--spacing-sm);
+}
+
+.notification-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--primary);
+  width: 100%;
+  animation: progress 5s linear;
+}
+
+.error .notification-progress {
+  background: var(--secondary);
+}
+
+@keyframes progress {
+  0% { width: 100%; }
+  100% { width: 0%; }
+}
+
+@media (max-width: 768px) {
+  .cyber-notification {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    max-width: none;
+    transform: translateY(100%);
+  }
+  
+  .cyber-notification.show {
+    transform: translateY(0);
+  }
+}

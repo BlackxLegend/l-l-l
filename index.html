@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#111111" />
+    <title>CyberGame - Coming Soon</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <div class="cyber-grid"></div>
+    <div class="container">
+      <h1 class="glitch" data-text="COMING SOON">COMING SOON</h1>
+      <div class="countdown">
+        <div class="time-block">
+          <span id="days">00</span>
+          <span class="label">DAYS</span>
+        </div>
+        <div class="time-block">
+          <span id="hours">00</span>
+          <span class="label">HOURS</span>
+        </div>
+        <div class="time-block">
+          <span id="minutes">00</span>
+          <span class="label">MINUTES</span>
+        </div>
+        <div class="time-block">
+          <span id="seconds">00</span>
+          <span class="label">SECONDS</span>
+        </div>
+      </div>
+      <form class="subscribe">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="cyber-input"
+          aria-label="Email subscription"
+        />
+        <button type="submit" class="cyber-button">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          STAY TUNED
+        </button>
+      </form>
+    </div>
+    <script type="module">
+      const countDownDate = new Date("Dec 31, 2024 23:59:59").getTime();
+
+      const x = setInterval(function () {
+        const now = new Date().getTime();
+
+        const distance = countDownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.querySelector(".countdown").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
